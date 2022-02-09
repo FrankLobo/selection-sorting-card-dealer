@@ -2,12 +2,14 @@ body {
   background-color: rgb(0, 153, 0);
 }
 .container {
-  margin: 0;
+  margin-inline: 2rem;
   display: grid;
+  align-items: center;
+  justify-items: center;
   gap: 1rem;
   grid-auto-flow: dense;
   grid-auto-rows: 18rem;
-  grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(7.5rem, 1fr));
 }
 .text-original {
   /* margin: 0; */
@@ -48,12 +50,16 @@ ul {
   gap: 1rem;
   grid-auto-flow: dense;
   grid-auto-rows: 18rem;
-  grid-template-columns: 3rem repeat(auto-fill, minmax(10rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
   font-size: 2.5rem;
+
+  /* grid-column-start: span 3; */
 }
+/* numero de filas */
 ul li:nth-child(1) {
   font-family: "Franklin Gothic Regular", "Arial Narrow", Arial, sans-serif;
   color: #fff;
+  list-style: none;
 }
 .draw-button,
 .sort-button {
