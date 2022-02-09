@@ -49,9 +49,9 @@ window.onload = () => {
     }
   }
   const selectSort = () => {
-    let myUl = document.querySelector(".lista-containers-cards-sort");
-    if (myUl.childNodes.length !== 0) {
-      myUl.innerHTML = "";
+    let myContainerDiv = document.querySelector(".contenedor-listas-sort");
+    if (myContainerDiv.childNodes.length !== 0) {
+      myContainerDiv.innerHTML = "";
     }
     let min = 0;
     while (min < objOfCards.length - 1) {
@@ -87,26 +87,33 @@ window.onload = () => {
         }
       }
       min++;
-    }
 
-    for (let element of objOfCards) {
-      if (element.ranks === 1) {
-        element.ranks = "A";
+      let myUl = document.createElement("ul");
+      let liNumber = document.createElement("li");
+      liNumber.innerHTML = `${min - 1}:`;
+      myUl.appendChild(liNumber);
+      myUl.className = "lista-containers-cards-sort";
+      myContainerDiv.appendChild(myUl);
+      // Este for itera cada elemento del objeto para imprimir la carta en el html
+      for (let element of objOfCards) {
+        if (element.ranks === 1) {
+          element.ranks = "A";
+        }
+        if (element.ranks === 11) {
+          element.ranks = "J";
+        }
+        if (element.ranks === 12) {
+          element.ranks = "Q";
+        }
+        if (element.ranks === 13) {
+          element.ranks = "K";
+        }
+        let myLi = document.createElement("li");
+        let contentLi = document.createTextNode(`${element.ranks}`);
+        myLi.className = `card ${element.suits}`;
+        myLi.appendChild(contentLi);
+        myUl.appendChild(myLi);
       }
-      if (element.ranks === 11) {
-        element.ranks = "J";
-      }
-      if (element.ranks === 12) {
-        element.ranks = "Q";
-      }
-      if (element.ranks === 13) {
-        element.ranks = "K";
-      }
-      let myLi = document.createElement("li");
-      let contentLi = document.createTextNode(`${element.ranks}`);
-      myLi.className = `card ${element.suits}`;
-      myLi.appendChild(contentLi);
-      myUl.appendChild(myLi);
     }
     return objOfCards;
   };

@@ -27,6 +27,10 @@ body {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   color: rgb(255, 250, 215);
 }
+.contenedor-listas-sort {
+  width: 100%;
+}
+
 #numberusercards {
   display: inline;
   width: 50px;
@@ -39,10 +43,17 @@ ul {
   padding: 0;
   margin: 0;
   display: grid;
+  align-items: center;
+  justify-items: center;
   gap: 1rem;
   grid-auto-flow: dense;
   grid-auto-rows: 18rem;
-  grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+  grid-template-columns: 3rem repeat(auto-fill, minmax(10rem, 1fr));
+  font-size: 2.5rem;
+}
+ul li:nth-child(1) {
+  font-family: "Franklin Gothic Regular", "Arial Narrow", Arial, sans-serif;
+  color: #fff;
 }
 .draw-button,
 .sort-button {
